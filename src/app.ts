@@ -1,11 +1,11 @@
 import "dotenv/config";
 import expess, { NextFunction, Request, Response } from "express";
 import createHttpError, { isHttpError } from "http-errors";
-import { authMiddleware } from "./middlewares";
 import { env } from "./utils";
 import morgan from "morgan";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import userRouter from "./routes/user-routes";
 
 const app = expess();
 
@@ -26,6 +26,8 @@ app.use(
     }),
   })
 );
+
+app.use("/api/v1/users", userRouter);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   next(createHttpError(404, "Endpoint not found."));

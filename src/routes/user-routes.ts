@@ -11,10 +11,10 @@ const router = express.Router();
 
 router.get("/", authMiddleware, getAuthenticatedUser);
 
-router.post("/signup", signUp);
+router.post("/sign-up", signUp);
 
-router.post("/signin", signIn);
+router.post("/sign-in", signIn);
 
-router.post("/signout", signOut);
+router.post("/sign-out", signOut);
 
 export default router;

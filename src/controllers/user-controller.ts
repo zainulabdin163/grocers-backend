@@ -3,7 +3,6 @@ import { ISignUpBody, ISignInBody } from "../interfaces";
 import createHttpError from "http-errors";
 import bcrypt from "bcrypt";
 import UserModel from "../models/user-model";
-import { UserRoleEnum } from "../enums";
 
 const getAuthenticatedUser: RequestHandler = async (req, res, next) => {
   try {

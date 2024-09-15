@@ -1,4 +1,4 @@
 import { UserRoleEnum } from "./user-enums";
-import { OrderPaymentEnum } from "./order-enums";
+import { PaymentMethodEnum } from "./payment-method-enums";
 
-export { UserRoleEnum, OrderPaymentEnum };
+export { UserRoleEnum, PaymentMethodEnum };

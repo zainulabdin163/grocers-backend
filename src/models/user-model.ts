@@ -1,5 +1,5 @@
 import { InferSchemaType, Schema, model } from "mongoose";
-import { UserRoleEnum } from "../enums";
+import { PaymentMethodEnum, UserRoleEnum } from "../enums";
 
 const UserSchema = new Schema({
   username: {
@@ -22,7 +22,34 @@ const UserSchema = new Schema({
   },
 
   address: {
+    street: { type: String },
+    city: { type: String },
+    state: { type: String },
+    zip: { type: String },
+    country: { type: String },
+  },
+
+  preferredPaymentMethod: {
     type: String,
+    enum: [
+      PaymentMethodEnum.CashOnDelivery,
+      PaymentMethodEnum.CreditOrDebitCard,
+    ],
+    default: PaymentMethodEnum.CashOnDelivery,
+  },
+
+  cardDetails: {
+    number: {
+      type: String,
+    },
+
+    expiry: {
+      type: Date,
+    },
+
+    cvv: {
+      type: Number,
+    },
   },
 
   orders: [{ type: Schema.ObjectId, ref: "Order" }],

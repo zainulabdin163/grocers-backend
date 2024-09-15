@@ -1,5 +1,5 @@
 import { InferSchemaType, Schema, model } from "mongoose";
-import { OrderPaymentEnum } from "../enums";
+import { PaymentMethodEnum } from "../enums";
 
 const OrderSchema = new Schema({
   user: [{ type: Schema.ObjectId, ref: "User", required: true }],
@@ -18,7 +18,10 @@ const OrderSchema = new Schema({
 
   paymentMethod: {
     type: String,
-    enum: [OrderPaymentEnum.CreditOrDebitCard, OrderPaymentEnum.CashOnDelivery],
+    enum: [
+      PaymentMethodEnum.CreditOrDebitCard,
+      PaymentMethodEnum.CashOnDelivery,
+    ],
     required: true,
   },
 });

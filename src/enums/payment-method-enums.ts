@@ -1,6 +1,6 @@
-enum OrderPaymentEnum {
+enum PaymentMethodEnum {
   CreditOrDebitCard = "credit/debit-card",
   CashOnDelivery = "cod",
 }
 
-export { OrderPaymentEnum };
+export { PaymentMethodEnum };
